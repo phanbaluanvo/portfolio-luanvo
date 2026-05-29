@@ -1,6 +1,6 @@
 import { useTypewriter } from '../../hooks/useTypewriter'
 import devLogo from '../../assets/image/dev_logo.jpg'
-import bgImg   from '../../assets/image/background_main.jpg'
+
 
 const ROLES = [
   'Software Developer',
@@ -12,7 +12,7 @@ const ROLES = [
 
 const SOCIAL_LINKS = [
   { href: 'https://www.facebook.com/vophanba.luan/', icon: 'fa-brands fa-facebook', label: 'Facebook' },
-  { href: 'https://github.com/phanbaluanvo',          icon: 'fa-brands fa-github',   label: 'GitHub'   },
+  { href: 'https://github.com/phanbaluanvo', icon: 'fa-brands fa-github', label: 'GitHub' },
   { href: 'https://www.linkedin.com/in/phanbaluanvo', icon: 'fa-brands fa-linkedin', label: 'LinkedIn' },
 ]
 
@@ -22,10 +22,10 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center relative bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: `url(${bgImg})` }}
+      className="min-h-screen flex items-center relative bg-dark"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-black/45 z-0" />
+      <div className="absolute inset-0 z-[1] pointer-events-none opacity-[0.05] bg-[url('/noise.gif')]" />
       <div className="max-w-6xl mx-auto px-4 w-full relative z-10">
         <div className="text-center text-white animate-fade-in-up">
           <img
