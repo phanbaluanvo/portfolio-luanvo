@@ -3,12 +3,12 @@ import { useScrollReveal } from '../../hooks/useScrollReveal'
 import profileImg from '../../assets/image/profile_LuanVo-2.png'
 
 const STRENGTHS = [
-  { icon: 'fa-solid fa-bullseye',         title: 'End-to-End Owner',              desc: 'Treats every problem as something to be fully solved end-to-end — not triaged and passed on.' },
-  { icon: 'fa-solid fa-comments',         title: 'Clear Communicator',            desc: 'Translates complex technical findings for any audience — from engineers to non-technical stakeholders.' },
-  { icon: 'fa-solid fa-magnifying-glass', title: 'Deep Technical Investigator',   desc: 'Digs past surface symptoms to find root causes; never escalates without attempting a comprehensive solution first.' },
-  { icon: 'fa-solid fa-book-open',        title: 'Continuous Learner',            desc: 'Committed to building both technical depth and business acumen through formal and self-directed learning.' },
-  { icon: 'fa-solid fa-heart',            title: 'Empathetic Technologist',       desc: 'Understands the user-facing impact of technical issues and delivers resolutions that are accurate and considerate.' },
-  { icon: 'fa-solid fa-people-group',     title: 'Cross-functional Collaborator', desc: 'Bridges business, engineering, and vendor teams — driving long-term fixes rather than short-term patches.' },
+  { icon: 'fa-solid fa-bullseye', title: 'End-to-End Owner', desc: 'Treats every problem as something to be fully solved end-to-end — not triaged and passed on.' },
+  { icon: 'fa-solid fa-comments', title: 'Clear Communicator', desc: 'Translates complex technical findings for any audience — from engineers to non-technical stakeholders.' },
+  { icon: 'fa-solid fa-magnifying-glass', title: 'Deep Technical Investigator', desc: 'Digs past surface symptoms to find root causes; never escalates without attempting a comprehensive solution first.' },
+  { icon: 'fa-solid fa-book-open', title: 'Continuous Learner', desc: 'Committed to building both technical depth and business acumen through formal and self-directed learning.' },
+  { icon: 'fa-solid fa-heart', title: 'Empathetic Technologist', desc: 'Understands the user-facing impact of technical issues and delivers resolutions that are accurate and considerate.' },
+  { icon: 'fa-solid fa-people-group', title: 'Cross-functional Collaborator', desc: 'Bridges business, engineering, and vendor teams — driving long-term fixes rather than short-term patches.' },
 ]
 
 const SKILLS = [
@@ -107,13 +107,20 @@ export default function About() {
               <div className="font-bold text-[0.78rem] uppercase tracking-[1.2px] text-muted mb-6">Key Strengths</div>
               <p className="text-[5.5rem] font-extrabold leading-none opacity-[0.15] dark:opacity-[0.25]"
                 style={{ color: 'var(--color-body)' }}>
-                I'm a(n)
+                I'm a(n)...
               </p>
             </div>
 
             {/* RIGHT: 3-item display */}
             <div className="flex flex-col justify-center">
-              <div className="lg:hidden font-bold text-[0.78rem] uppercase tracking-[1.2px] text-muted mb-6">Key Strengths</div>
+              {/* Mobile header + "I'm a(n)" */}
+              <div className="lg:hidden mb-6 select-none">
+                <div className="font-bold text-[0.78rem] uppercase tracking-[1.2px] text-muted mb-3">Key Strengths</div>
+                <p className="text-[2.8rem] font-extrabold leading-none opacity-[0.15] dark:opacity-[0.25]"
+                  style={{ color: 'var(--color-body)' }}>
+                  I'm a(n)
+                </p>
+              </div>
 
               {/* Prev */}
               <div className="py-3.5 transition-all duration-300 select-none"
@@ -133,7 +140,7 @@ export default function About() {
                     {curr.title}
                   </span>
                 </div>
-                <p key={activeIdx} className="text-muted text-[0.95rem] leading-[1.75] animate-fade-in-up"
+                <p key={activeIdx} className="text-muted text-[0.95rem] leading-[1.75] animate-fade-in-up min-h-[72px]"
                   style={{ animationDuration: '0.35s' }}>
                   {curr.desc}
                 </p>

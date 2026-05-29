@@ -12,11 +12,11 @@ export default function Stats() {
           {STATS.map(({ num, label, sub }, i) => (
             <div
               key={label}
-              className={`px-20 py-7 text-center ${i < STATS.length - 1 ? 'border-r border-white/[0.07]' : ''}`}
+              className={`flex-1 px-4 sm:px-10 lg:px-16 py-6 sm:py-7 text-center ${i < STATS.length - 1 ? 'border-r border-white/[0.07]' : ''}`}
             >
-              <div className="font-audiowide text-[2rem] font-bold text-accent leading-none mb-1.5">{num}</div>
-              <div className="text-[0.74rem] text-white/45 uppercase tracking-[1px] font-semibold">{label}</div>
-              {sub && <div className="text-[0.68rem] text-white/30 mt-0.5 tracking-[0.4px]">{sub}</div>}
+              <div className="font-audiowide text-[1.5rem] sm:text-[2rem] font-bold text-accent leading-none mb-1.5">{num}</div>
+              <div className="text-[0.68rem] sm:text-[0.74rem] text-white/45 uppercase tracking-[1px] font-semibold">{label}</div>
+              {sub && <div className="text-[0.6rem] sm:text-[0.68rem] text-white/30 mt-0.5 tracking-[0.3px] leading-snug">{sub}</div>}
             </div>
           ))}
         </div>
