@@ -45,7 +45,7 @@ export default function Hero() {
           </p>
           <p className="text-[1.05rem] text-white/75 mb-9 font-normal">Vancouver, BC, Canada</p>
           <a
-            href="/Resume_LuanVo.pdf"
+            href="/Resume-LuanVo.pdf"
             target="_blank"
             rel="noreferrer"
             className="inline-block px-9 py-3 border-2 border-accent text-accent rounded-full font-bold text-[0.92rem] tracking-[0.8px] no-underline transition-all duration-300 mb-8 hover:bg-accent hover:text-white hover:-translate-y-0.5 hover:shadow-[0_10px_28px_color-mix(in_srgb,var(--color-accent)_38%,transparent)]"

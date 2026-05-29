@@ -123,8 +123,8 @@ export default function About() {
               </div>
 
               {/* Prev */}
-              <div className="py-3.5 transition-all duration-300 select-none"
-                style={{ opacity: prev ? 0.28 : 0, transform: 'translateX(0)' }}>
+              <div className="h-[52px] flex items-center overflow-hidden transition-all duration-300 select-none"
+                style={{ opacity: prev ? 0.28 : 0 }}>
                 <div className="flex items-center gap-2.5">
                   <i className={(prev ?? curr).icon} style={{ fontSize: '1rem', color: 'var(--color-muted)' }} />
                   <span className="text-[1.3rem] font-semibold text-muted">{prev?.title ?? ''}</span>
@@ -132,22 +132,22 @@ export default function About() {
               </div>
 
               {/* Active */}
-              <div className="py-3.5 pl-4 border-l-[3px] transition-all duration-300 select-none"
+              <div className="pl-4 border-l-[3px] transition-all duration-300 select-none py-3"
                 style={{ borderColor: 'var(--color-accent)' }}>
-                <div className="flex items-center gap-3 mb-2.5">
+                <div className="flex items-center gap-3 mb-2.5 min-h-[2.8rem]">
                   <i className={curr.icon} style={{ fontSize: '1.3rem', color: 'var(--color-accent)' }} />
                   <span className="text-[1.75rem] font-extrabold leading-tight" style={{ color: 'var(--color-body)' }}>
                     {curr.title}
                   </span>
                 </div>
-                <p key={activeIdx} className="text-muted text-[0.95rem] leading-[1.75] animate-fade-in-up min-h-[72px]"
+                <p key={activeIdx} className="text-muted text-[0.95rem] leading-[1.75] animate-fade-in-up h-[90px] overflow-hidden"
                   style={{ animationDuration: '0.35s' }}>
                   {curr.desc}
                 </p>
               </div>
 
               {/* Next */}
-              <div className="py-3.5 transition-all duration-300 select-none"
+              <div className="h-[52px] flex items-center overflow-hidden transition-all duration-300 select-none"
                 style={{ opacity: next ? 0.28 : 0 }}>
                 <div className="flex items-center gap-2.5">
                   <i className={(next ?? curr).icon} style={{ fontSize: '1rem', color: 'var(--color-muted)' }} />
