@@ -1,16 +1,52 @@
-# React + Vite
+# Luan Vo — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website built with ReactJS, Vite, and Tailwind CSS v4.
 
-Currently, two official plugins are available:
+**Live:** [phanbaluanvo.github.io/portfolio-luanvo](https://phanbaluanvo.github.io/portfolio-luanvo) &nbsp;·&nbsp; **GitHub:** [phanbaluanvo/portfolio-luanvo](https://github.com/phanbaluanvo/portfolio-luanvo)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| | |
+|---|---|
+| **Framework** | React 19 + Vite 8 |
+| **Styling** | Tailwind CSS v4 (Vite plugin, CSS-first config) |
+| **Icons** | Font Awesome 6 |
+| **Fonts** | Nunito, Audiowide (Google Fonts) |
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Typewriter effect cycling through roles
+- Scroll-reveal animations via IntersectionObserver
+- Animated hamburger menu for mobile
+- Responsive layout across all screen sizes
+- Sections: Hero · Stats · About · Experience · Education · Projects · Contact
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## Project Structure
+
+```
+src/
+├── assets/         # Images and static files
+├── components/     # One folder per section (JSX only, no separate CSS)
+├── hooks/          # useTypewriter, useScrollReveal
+└── styles/
+    └── base.css    # Tailwind directives + @theme config
+```
+
+## Contact
+
+**Luan Vo** — [phanbaluanvo@gmail.com](mailto:phanbaluanvo@gmail.com) · [linkedin.com/in/phanbaluanvo](https://linkedin.com/in/phanbaluanvo)
