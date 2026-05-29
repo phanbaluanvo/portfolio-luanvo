@@ -32,21 +32,23 @@ export default function Hero() {
             src={devLogo}
             alt="Luan Vo"
             className="w-[108px] h-[108px] rounded-full border-[3px] border-accent object-cover mb-6 mx-auto brightness-[10] saturate-0"
-            style={{ boxShadow: '0 0 0 8px rgba(16,185,129,0.18), 0 0 28px rgba(16,185,129,0.20)' }}
+            style={{ boxShadow: '0 0 0 8px color-mix(in srgb, var(--color-accent) 18%, transparent), 0 0 28px color-mix(in srgb, var(--color-accent) 20%, transparent)' }}
           />
           <p className="font-audiowide text-[clamp(1.8rem,5vw,3.4rem)] font-bold mb-3.5 leading-tight">
             Hey, I'm <span className="text-accent">Luan Vo</span>
           </p>
-          <p className="text-xl font-bold text-white/90 mb-2 min-h-[1.8rem] tracking-[0.3px]">
+          <p className="text-[1.05rem] font-medium text-white/90 mb-2 min-h-[1.8rem] tracking-tight"
+            style={{ fontFamily: "'JetBrains Mono', monospace" }}>
+            <span className="text-accent mr-2 select-none">❯</span>
             <span>{text}</span>
-            <span className="inline-block w-0.5 h-[1.1em] bg-accent ml-0.5 align-middle rounded-sm animate-blink" />
+            <span className="inline-block w-[0.55em] h-[1em] bg-accent ml-0.5 align-middle animate-blink" />
           </p>
           <p className="text-[1.05rem] text-white/75 mb-9 font-normal">Vancouver, BC, Canada</p>
           <a
             href="/Resume_LuanVo.pdf"
             target="_blank"
             rel="noreferrer"
-            className="inline-block px-9 py-3 border-2 border-accent text-accent rounded-full font-bold text-[0.92rem] tracking-[0.8px] no-underline transition-all duration-300 mb-8 hover:bg-accent hover:text-white hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(16,185,129,0.38)]"
+            className="inline-block px-9 py-3 border-2 border-accent text-accent rounded-full font-bold text-[0.92rem] tracking-[0.8px] no-underline transition-all duration-300 mb-8 hover:bg-accent hover:text-white hover:-translate-y-0.5 hover:shadow-[0_10px_28px_color-mix(in_srgb,var(--color-accent)_38%,transparent)]"
           >
             <i className="fa-solid fa-file-lines mr-2" />View Resume
           </a>

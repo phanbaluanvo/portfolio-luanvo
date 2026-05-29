@@ -7,7 +7,7 @@ const INFO_ITEMS = [
   { href: null,                                         icon: 'fa-solid fa-location-dot', label: 'Location', val: 'Vancouver, BC, Canada',  external: false },
 ]
 
-const inputClass = 'w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 text-[0.93rem] font-[Nunito] transition-[background,border-color,box-shadow] duration-300 focus:outline-none focus:bg-white/8 focus:border-accent focus:shadow-[0_0_0_3px_rgba(16,185,129,0.18)] placeholder:text-white/28'
+const inputClass = 'w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 text-[0.93rem] font-[Nunito] transition-[background,border-color,box-shadow] duration-300 focus:outline-none focus:bg-white/8 focus:border-accent focus:shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-accent)_20%,transparent)] placeholder:text-white/28'
 const labelClass = 'block text-white/60 text-[0.78rem] font-bold uppercase tracking-[1.2px] mb-1.5'
 
 function SectionTitle({ children }) {
@@ -39,8 +39,7 @@ export default function Contact() {
               {INFO_ITEMS.map(({ href, icon, label, val, external }) => {
                 const content = (
                   <>
-                    <div className="w-9 h-9 rounded-lg flex items-center justify-center text-accent text-[15px] flex-shrink-0 border border-accent/25"
-                      style={{ background: 'rgba(16,185,129,0.12)' }}>
+                    <div className="w-9 h-9 rounded-lg flex items-center justify-center text-accent text-[15px] flex-shrink-0 border border-accent/25 bg-accent-light">
                       <i className={icon} />
                     </div>
                     <div>
@@ -88,7 +87,7 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full py-3.5 bg-accent text-white border-none rounded-full font-bold text-[0.97rem] tracking-[0.8px] font-[Nunito] cursor-pointer transition-all duration-300 hover:bg-accent-dark hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(16,185,129,0.36)]"
+                className="w-full py-3.5 bg-accent text-white border-none rounded-full font-bold text-[0.97rem] tracking-[0.8px] font-[Nunito] cursor-pointer transition-all duration-300 hover:bg-accent-dark hover:-translate-y-0.5 hover:shadow-[0_10px_28px_color-mix(in_srgb,var(--color-accent)_36%,transparent)]"
               >
                 <i className="fa-solid fa-paper-plane mr-2" />Send Message
               </button>

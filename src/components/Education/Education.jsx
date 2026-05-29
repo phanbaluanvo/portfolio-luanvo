@@ -50,8 +50,7 @@ function EduCard({ school }) {
           style={{ background: 'rgba(255,255,255,0.92)' }}
         />
         <div className="p-6 flex-1">
-          <span className="inline-block px-2.5 py-0.5 text-[0.7rem] font-bold uppercase tracking-[0.5px] rounded text-accent border border-accent/30 mb-2"
-            style={{ background: 'rgba(16,185,129,0.15)' }}>
+          <span className="inline-block px-2.5 py-0.5 text-[0.7rem] font-bold uppercase tracking-[0.5px] rounded text-accent border border-accent/30 mb-2 bg-accent-light">
             {school.badge}
           </span>
           <div className="text-[1.1rem] font-extrabold text-white mb-1">{school.name}</div>

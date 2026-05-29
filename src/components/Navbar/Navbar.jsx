@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTheme } from '../../hooks/useTheme'
 
 const NAV_LINKS = [
   { label: 'Home',       href: '#home'       },
@@ -12,6 +13,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [active, setActive] = useState('home')
   const [open, setOpen]     = useState(false)
+  const [dark, toggleTheme] = useTheme()
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]')
@@ -28,9 +30,9 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-[0_1px_24px_rgba(0,0,0,0.07)] py-2.5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_24px_rgba(0,0,0,0.07)] py-2.5 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
-        <a href="#" className="font-audiowide text-[1.2rem] text-dark no-underline tracking-wide">
+        <a href="#" className="font-audiowide text-[1.2rem] text-body no-underline tracking-wide">
           Luan Vo
         </a>
 
@@ -43,7 +45,7 @@ export default function Navbar() {
                 className={`px-4 py-1.5 rounded-full font-semibold text-[0.88rem] tracking-[0.4px] transition-all duration-300 no-underline ${
                   active === href.slice(1)
                     ? 'text-accent bg-accent-light'
-                    : 'text-gray-700 hover:text-accent hover:bg-accent-light'
+                    : 'text-muted hover:text-accent hover:bg-accent-light'
                 }`}
               >
                 {label}
@@ -52,16 +54,27 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Hamburger */}
-        <button
-          className="lg:hidden flex flex-col justify-center gap-[5px] p-2 mr-1 cursor-pointer bg-transparent border-none"
-          onClick={() => setOpen(o => !o)}
-          aria-label="Toggle navigation"
-        >
-          <span className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 origin-center ${open ? 'rotate-45 translate-y-[7px]' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 origin-center ${open ? '-rotate-45 -translate-y-[7px]' : ''}`} />
-        </button>
+        <div className="flex items-center gap-2">
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="w-9 h-9 flex items-center justify-center rounded-full border border-line text-muted hover:text-accent hover:border-accent transition-all duration-300 bg-transparent cursor-pointer"
+          >
+            <i className={dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon'} />
+          </button>
+
+          {/* Hamburger */}
+          <button
+            className="lg:hidden flex flex-col justify-center gap-[5px] p-2 mr-1 cursor-pointer bg-transparent border-none"
+            onClick={() => setOpen(o => !o)}
+            aria-label="Toggle navigation"
+          >
+            <span className={`block w-6 h-0.5 bg-body transition-all duration-300 origin-center ${open ? 'rotate-45 translate-y-[7px]' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-body transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-body transition-all duration-300 origin-center ${open ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -75,7 +88,7 @@ export default function Navbar() {
                 className={`block px-4 py-2 rounded-xl font-semibold text-[0.88rem] transition-all duration-300 no-underline ${
                   active === href.slice(1)
                     ? 'text-accent bg-accent-light'
-                    : 'text-gray-700 hover:text-accent hover:bg-accent-light'
+                    : 'text-muted hover:text-accent hover:bg-accent-light'
                 }`}
               >
                 {label}
