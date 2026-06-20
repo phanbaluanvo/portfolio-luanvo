@@ -148,7 +148,7 @@ export default function About() {
 
               {/* Next */}
               <div className="h-[52px] flex items-center overflow-hidden transition-all duration-300 select-none"
-                style={{ opacity: next ? 0.28 : 0 }}>
+k                style={{ opacity: next ? 0.28 : 0 }}>
                 <div className="flex items-center gap-2.5">
                   <i className={(next ?? curr).icon} style={{ fontSize: '1rem', color: 'var(--color-muted)' }} />
                   <span className="text-[1.3rem] font-semibold text-muted">{next?.title ?? ''}</span>

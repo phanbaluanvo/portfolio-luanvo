@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY
 
 const INFO_ITEMS = [
   { href: 'mailto:phanbaluanvo@gmail.com',             icon: 'fa-solid fa-envelope',     label: 'Email',    val: 'phanbaluanvo@gmail.com', external: false },
@@ -9,6 +12,8 @@ const INFO_ITEMS = [
 
 const inputClass = 'w-full bg-white/5 border border-white/10 text-white rounded-xl px-4 py-3 text-[0.93rem] font-[Nunito] transition-[background,border-color,box-shadow] duration-300 focus:outline-none focus:bg-white/8 focus:border-accent focus:shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-accent)_20%,transparent)] placeholder:text-white/28'
 const labelClass = 'block text-white/60 text-[0.78rem] font-bold uppercase tracking-[1.2px] mb-1.5'
+
+const INITIAL = { name: '', email: '', subject: '', message: '' }
 
 function SectionTitle({ children }) {
   return (
@@ -23,6 +28,28 @@ function SectionTitle({ children }) {
 
 export default function Contact() {
   const ref = useScrollReveal()
+  const [fields, setFields] = useState(INITIAL)
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
+
+  const handleChange = e => setFields(f => ({ ...f, [e.target.name]: e.target.value }))
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    setStatus('sending')
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ access_key: WEB3FORMS_KEY, ...fields }),
+      })
+      const data = await res.json()
+      if (!data.success) throw new Error()
+      setStatus('success')
+      setFields(INITIAL)
+    } catch {
+      setStatus('error')
+    }
+  }
 
   return (
     <section id="contact" className="py-22 bg-dark">
@@ -66,30 +93,49 @@ export default function Contact() {
 
           {/* Form */}
           <div className="lg:w-7/12">
-            <form className="flex flex-col gap-3">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
                   <label className={labelClass}>Name</label>
-                  <input type="text" className={inputClass} placeholder="Your full name" />
+                  <input name="name" type="text" required className={inputClass} placeholder="Your full name"
+                    value={fields.name} onChange={handleChange} />
                 </div>
                 <div>
                   <label className={labelClass}>Email</label>
-                  <input type="email" className={inputClass} placeholder="your@email.com" />
+                  <input name="email" type="email" required className={inputClass} placeholder="your@email.com"
+                    value={fields.email} onChange={handleChange} />
                 </div>
               </div>
               <div>
                 <label className={labelClass}>Subject</label>
-                <input type="text" className={inputClass} placeholder="What's this about?" />
+                <input name="subject" type="text" required className={inputClass} placeholder="What's this about?"
+                  value={fields.subject} onChange={handleChange} />
               </div>
               <div>
                 <label className={labelClass}>Message</label>
-                <textarea className={`${inputClass} resize-vertical`} rows={6} placeholder="Your message..." />
+                <textarea name="message" required className={`${inputClass} resize-vertical`} rows={6}
+                  placeholder="Your message..." value={fields.message} onChange={handleChange} />
               </div>
+
+              {status === 'success' && (
+                <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-green-500/10 border border-green-500/25 text-green-400 text-[0.88rem] font-semibold">
+                  <i className="fa-solid fa-circle-check" /> Message sent! I'll get back to you soon.
+                </div>
+              )}
+              {status === 'error' && (
+                <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/25 text-red-400 text-[0.88rem] font-semibold">
+                  <i className="fa-solid fa-circle-exclamation" /> Something went wrong. Please try again or email me directly.
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full py-3.5 bg-accent text-white border-none rounded-full font-bold text-[0.97rem] tracking-[0.8px] font-[Nunito] cursor-pointer transition-all duration-300 hover:bg-accent-dark hover:-translate-y-0.5 hover:shadow-[0_10px_28px_color-mix(in_srgb,var(--color-accent)_36%,transparent)]"
+                disabled={status === 'sending'}
+                className="w-full py-3.5 bg-accent text-white border-none rounded-full font-bold text-[0.97rem] tracking-[0.8px] font-[Nunito] cursor-pointer transition-all duration-300 hover:bg-accent-dark hover:-translate-y-0.5 hover:shadow-[0_10px_28px_color-mix(in_srgb,var(--color-accent)_36%,transparent)] disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 disabled:shadow-none"
               >
-                <i className="fa-solid fa-paper-plane mr-2" />Send Message
+                {status === 'sending'
+                  ? <><i className="fa-solid fa-spinner fa-spin mr-2" />Sending...</>
+                  : <><i className="fa-solid fa-paper-plane mr-2" />Send Message</>}
               </button>
             </form>
           </div>

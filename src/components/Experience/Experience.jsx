@@ -2,15 +2,17 @@ import { useScrollReveal } from '../../hooks/useScrollReveal'
 
 const ROLES = [
   {
-    title: 'Technical Support Specialist — Enterprise Billing Systems',
+    title: 'System Analyst / Application Development and Support — Enterprise Billing Systems',
     achievements: [
-      <>Sole owner of production incident resolution for Bell Canada's enterprise billing system — independently diagnosing root causes and implementing direct fixes on live systems (SQL, data corrections, config changes).</>,
-      <>Investigated complex, multi-layered system issues with advanced Oracle SQL queries and real-time log analysis, identifying root causes that recurring tickets had missed — reducing repeat incidents by <strong>30%</strong>.</>,
-      <>Identified recurring ticket patterns and proactively built internal tooling to automate backend/database update workflows — reducing resolution time by <strong>75%</strong>.</>,
-      <>Owned the full incident lifecycle end-to-end: triage → independent root cause analysis → production fix → post-fix validation, minimizing escalation to engineering.</>,
-      <>Participated in 24/7 on-call rotations managing urgent technical escalations under high-pressure SLA targets.</>,
-      <>Authored troubleshooting guides and technical documentation in Wiki.js and Confluence, enabling the broader support team to resolve a wider class of issues independently.</>,
-      <>Built a Java/Spring Boot XML transformation tool to parse, map, and convert data between disparate systems, ensuring data integrity across complex integration points.</>,
+      <>Served as the primary Systems Analyst responsible for production incident resolution at Bell Canada's enterprise billing system — leveraging a deep understanding of end-to-end billing workflows and business impact to independently diagnose root causes, implement direct fixes on live systems (SQL, data corrections, config changes), and validate resolutions post-deployment.</>,
+      <>Investigated deeply complex, multi-layered system issues by writing advanced Oracle SQL queries and analyzing real-time application logs — going well beyond surface-level symptoms to identify root causes that recurring tickets had missed, reducing repeat incidents by <strong>30%</strong>.</>,
+      <>Performed server administration tasks including monitoring scheduled jobs and system outputs — proactively identifying and resolving errors before they impacted downstream processes or customer-facing operations.</>,
+      <>Participated in 24/7 on-call rotations, managing urgent technical escalations with a calm, solution-focused approach under high-pressure SLA targets.</>,
+      <>Collaborated with Bell Canada's customer service agents (CSR) and business teams to deeply understand the user-facing impact of billing issues, translating complex technical findings into clear, empathetic, and actionable resolutions — ensuring both technical accuracy and customer satisfaction.</>,
+      <>Built an AI-powered support agent using <strong>Claude Code</strong>, connected to the internal ticket database for historical incident lookup and directly integrated with a test database and sandbox environment — allowing team members to self-investigate customer-reported issues, query past resolutions, and reproduce defects end-to-end with minimal engineering involvement, reducing resolution time by <strong>75%</strong>.</>,
+      <>Assisted peers with planning and supporting higher-complexity incidents and cross-team projects requiring deeper technical investigation.</>,
+      <>Assisted the testing team in developing UAT test scripts for Bell Canada change requests, supporting validation of fixes across billing and order-to-invoice workflows.</>,
+      <>Authored troubleshooting guides and technical documentation in Wiki.js and Confluence — synthesizing complex engineering findings into structured resources that reduced future resolution time and enabled the broader support team to resolve a wider class of issues independently.</>,
     ],
     tech: ['Oracle SQL', 'PL/SQL', 'DBeaver', 'OpenShift', 'SharePoint', 'JIRA', 'Wiki.js', 'Confluence', 'Command Line', 'Terminal', 'Linux', 'Windows'],
   },
